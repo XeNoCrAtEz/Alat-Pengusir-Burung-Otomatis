@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengusir Burung Otomatis</title>
+    <link rel="icon" href="icons/webIcon.png">
+    <link rel="stylesheet" href="style2.css">
+    <script src="scripting.js"></script>
+</head>
+
+<body>
+    <!-- Bagian paling atas website -->
+    <header>
+        <p><b>Website Alat Pengusir Burung</b></p>    <!-- Nama website -->
+        <!-- Bagian paling kanan header, berisi tombol untuk menyusun perangkat -->
+        <!-- <a href="susun_perangkat.html"><button>Atur Susunan Perangkat...</button></a> link ke web utk susun perangkat -->
+
+    </header>
+    <!-- keseluruhan web disimpan dalam container-all -->
+    <div id="container-all">
+        <!-- Bagian utama website, berisi status perangkat, log deteksi, serta tombol" pengaturan -->
+        <!-- Container utk status perangkat -->
+        <section class="container-statLogSet-dasar container-stat-LogSet-size">     <!-- NOTE : JS HARUS OTOMATIS MENGISI BAGIAN INI BERDASARKAN DATABASE -->
+            <!-- JS MASUKKAN PASANGAN-PASANGAN PERANGKAT DISINI -->
+        </section>
+
+        <!-- Container utk log deteksi dan pengaturan sistem -->
+        <section class="container-stat-LogSet-size container-LogSet">
+            <!-- container utk log pendeteksian -->
+            <div class="container-statLogSet-dasar logSet-size">      <!-- log pendeteksian menggunakan table yang bisa di scroll -->
+                <p>Log Pendeteksian Burung</p>
+                <table class="log-table">
+                    <thead>     <!-- Header log-nya -->
+                        <tr>
+                            <th>Tanggal &emsp; Waktu</th>
+                            <th>Ada Burung?</th>
+                            <th class="scrollbarspacing"></th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="table-content-scroll">  <!-- isi log dimasukkan ke dalam div agar bisa discroll -->
+                    <table class="log-table">
+                        <!-- JS MASUKKAN TABEL LOG DETEKSI DISINI -->
+                    </table>
+                </div>
+            </div>
+
+            <!-- container utk pengaturan sistem -->
+            <div class="container-statLogSet-dasar logSet-size">
+                <p>Pengaturan Sistem</p>
+
+                <!-- container untuk pengaturan jadwal aktif -->
+                <div class="container-statLogSet-dasar container-stat-LogSet-size container-Sett schedule-settings">
+                    <p>Pengaturan Jadwal ON/OFF Sistem</p>
+                    <form class="scheduler">
+                        <div>
+                            <div>
+                                <!-- kolom input jadwal dan tombol "terapkan" awalnya disabled, hingga tombol "ubah jadwal" ditekan -->
+                                <input type="text" name="jadwal-on" class="schedule-INPUT" value="-" disabled>  <!-- NILAI VALUE DIAMBIL DARI DB -->
+                                <p style="display: inline;">-</p>
+                                <input type="text" name="jadwal-off" class="schedule-INPUT" value="-" disabled> <!-- NILAI VALUE DIAMBIL DARI DB -->
+                                <!-- tekan agar bs ubah jadwal -->
+                            </div>
+                            <button type="button" onclick="enableUbahJadwal()">Ubah Jadwal</button>
+                        </div>
+                        <button type="submit" value="schedule" name="settings" id="button-set-schedule" onclick="return submitSchedule();" disabled>Terapkan</button>
+                        <!-- NOTE : AGAR PROSES SUBMIT GA BIKIN GANTI PAGE, SUBMIT PAKE AJAX -->
+                    </form>
+                </div>
+
+                <!-- container untuk pengaturan sensitivitas -->
+                <div class="container-statLogSet-dasar container-stat-LogSet-size container-Sett sensitivity-settings">
+                    <p>Pengaturan Sensitivitas</p>
+                    <form>
+                        <div class="sensitivity-slider">
+                            <label for="sensitivity">0%</label>
+                            <input type="range" name="sensitivity" id="sensitivity-slider" value="0" oninput="changeSensiValue()" disabled>  <!-- NILAI VALUE DIAMBIL DARI DB -->
+                            <label for="sensitivity">100%</label>
+                            <button type="button" onclick="enableUbahSensitivitas()">Ubah Sensitivitas</button>
+                        </div>
+                        <div class="sensitivity-value">
+                            <p id="nilai-sensi">0</p>
+                            <button type="submit" value="sensitivity" name="settings" id="button-set-sensi" onclick="return submitSensitivity();" disabled>Terapkan</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- container untuk tombol on/off -->
+                <div class="container-statLogSet-dasar container-stat-LogSet-size container-Sett power-settings">
+                    <p>Tombol Power dan Status Sistem</p>
+                    <!-- Tombol utk nyalakan atau padamkan sistem, tulisan berubah berdasarkan keadaan sistem -->
+                    <div>
+                        <button type="button" onclick="ONorOFFSystem()" name="OnOffSwitch" value="turnOFF">Matikan Sistem</button>
+                        <p class="sys-pwr-state-ON" id="power-state">Sistem<br>Aktif</p>     <!-- penanda apakah sistem menyala atau padam -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

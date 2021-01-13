@@ -1,0 +1,254 @@
+/* atur font menjadi verdana semua */
+* {
+    font-family: Verdana;
+}
+
+
+/* ukuran logo power dan baterai hanya 35px */
+img {
+    height: 25px;
+}
+
+
+/* atur agar smua tabel selalu memiliki lebar seukuran dengan containernya */
+table {
+    width: 100%;
+    border-collapse: collapse;      /* border dari setiap kolom harus collapse */
+}
+
+
+/* atur tampilan background website */
+body {
+    background-color: midnightblue;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* atur tampilan header website */
+header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: royalblue;
+}
+header > p {
+    margin: 0;
+    font-size: 30px;
+    /* background-color: ; */
+}
+
+
+/* atur container semua komponen website */
+#container-all {
+    background-color: cadetblue;
+    width: 75%;
+    margin: auto;
+}
+
+
+/* atur tampilan dasar untuk container status alat,
+    log pendeteksian, serta pengaturan. Termasuk tulisan
+    yang menunjukkan isi dari container tsb */
+.container-statLogSet-dasar {
+    /* berikan warna dasar yang sama untuk container status, log, dan settings*/
+    background-color: teal;
+}
+/* berikan tampilan yang sama thdp smua font tulisan pengenal container tsb */
+.container-statLogSet-dasar > p {
+    font-size: 35px;
+    margin: 0;
+    padding-left: 10px;
+    background-color: cyan;
+}
+/* atur ukuran container status alat dan log + pengaturan */
+.container-stat-LogSet-size {
+    max-width: 90%;
+    margin: 0 5% 30px;
+}
+
+
+/* pengaturan khusus bagian status alat */
+.container-psgn {       /* pengaturan container satu pasangan alat */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container-psgn > p { font-size: 20px; }
+.status-box {           /* pengaturan satu buah status box alat */
+    width: 35%;
+    margin : 20px;
+    border: 2px black solid;
+}
+.status-box > p {       /* pengaturan tulisan nomor alat */
+    font-size: 30px;
+    margin: 0;
+    padding: 0 0 0 10px;
+    background-color: cadetblue;
+}
+.status-box > table {
+    font-size: 30px;
+}
+.status-box td:nth-child(1) {   /* atur supaya icon baterai dan power berada di tengah */
+    text-align: center;
+}
+/* subclass untuk mengatur warna bg status alat (ON/OFF) */
+.bg-stat-ON { background-color: darkgreen; }
+.bg-stat-OFF { background-color: maroon; }
+/* subclass untuk mengatur warna bg persentase baterai */
+.bg-bat-75 { background-color: green; }
+.bg-bat-50 { background-color: yellow; }
+.bg-bat-25 { background-color: orange; }
+.bg-bat-0 { background-color: red; }
+
+
+/* pengaturan khusus bagian log pendeteksian dan system settings */
+/* pengaturan khusus container yg menyimpan panel log pendeteksian dan settings */
+.container-LogSet {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+/* atur ukuran panel log dan settings dengan ukuran yang sama */
+.logSet-size {
+    width: 48%;
+    margin-bottom: 100px;
+}
+/* atur tabel log pendeteksian burung */
+.log-table td, th {     /* atur bordernya dan tata letak tulisannya */
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid black;
+}
+.log-table th { background-color: cadetblue; }
+.log-table th:nth-child(1), .log-table td:nth-child(1) {    /* atur agar kolom waktu berukuran 70% */
+    max-width : 70%;
+}
+.log-table th:nth-child(2), .log-table td:nth-child(2) {
+    width: 150px;
+}
+.table-content-scroll {     /* subclass agar tabel dapat discroll */
+    height: 400px;
+    overflow-y: scroll;
+}
+.scrollbarspacing {
+    width: 14px;
+}
+.log-ada {
+    background-color: mediumturquoise;
+}
+
+
+/* Pengaturan isi panel settings */
+.container-Sett {
+    margin: 25px 5%;    /* override ukuran margin */
+    border: 1px solid black;
+}
+.container-Sett > p {
+    font-size: 20px;    /* override ukuran tulisan */
+    background-color: cadetblue;
+}
+
+
+
+/* pengaturan isi panel penjadwalan on-off sistem */
+.scheduler {
+    display: flex;
+    flex-direction: column;
+}
+.scheduler p { margin: 0 10px; }
+.scheduler > button {
+    height: 30px;
+    width: 150px;
+    border-radius: 5px;
+    align-self: flex-end;
+    font-size: 15px;
+    margin-right: 23px;
+    margin-bottom: 5px;
+}
+.schedule-INPUT {
+    width: 75px;
+    text-align: center;
+}
+.scheduler > div {
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+    align-items: baseline;
+    padding-top: 10px;
+}
+.scheduler > div > button {
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+
+/* pengaturan panel sensitivitas */
+.sensitivity-settings button {
+    background-color: #fff;
+    font-size: 15px;
+    height: 30px;
+    width: 150px;
+    border-radius: 5px;
+}
+.sensitivity-value button {
+    position: relative;
+    left: 10px;
+}
+.sensitivity-slider {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    font-size: 20px;
+    height: 40px;
+    padding-top: 10px;
+}
+.sensitivity-value {
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+.sensitivity-value > p {
+    margin: 0;
+    padding-bottom: 10px;
+}
+#nilai-sensi {
+    width: 185px;
+}
+#nilai-sensi::before {
+    content: "Sensitivitas ";
+}
+#nilai-sensi::after {
+    content: "%";
+}
+
+
+/* pengaturan panel tombol on-off */
+.power-settings > div {
+    display: flex;
+}
+.power-settings button {
+    width: 150px;
+    font-size: 15px;
+    margin: auto;
+    border: 0;
+    border-radius: 5px;
+    height: 30px;
+}
+/* .pwr-button-turn-OFF { background-color: red; }
+.pwr-button-turn-ON { background-color: green; } */
+.power-settings > div > p {
+    height: 80px;
+    width: 30%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 17px;
+    text-align: center;
+    font-size: 18px;
+}
+.sys-pwr-state-ON { background-color: green; color: white; }
+.sys-pwr-state-OFF { background-color: firebrick; color: white; }
